@@ -8,8 +8,8 @@ class Hat:
         self.contents = [k for k, v in kwargs.items() for _ in range(v)]
 
     def draw(self, n):
-        n = min(n, len(self.contents))
-        return [self.contents.pop(random.randrange(len(self.contents))+1) for _ in range(n)] # The previous code can't reach to the last element because random.randrange does not include the upperbound(the last value of that range), hence I just added 1 in the random.randrange(len(self.contents)+1) so that it can now reach the last element and pop out every element. Hope this will help,if I am wrong here then please tell me .
+        numb = min(n, len(self.contents)) # This variable name has to be changed otherwise test_module.py will thorw traceback
+        return [self.contents.pop(random.randrange(len(self.contents))+1) for _ in range(numb)] # The previous code can't reach to the last element because random.randrange does not include the upperbound(the last value of that range), hence I just added 1 in the random.randrange(len(self.contents)+1) so that it can now reach the last element and pop out every element. Hope this will help,if I am wrong here then please tell me .
 
 
 def experiment(hat, expected_balls, num_balls_drawn, num_experiments):
